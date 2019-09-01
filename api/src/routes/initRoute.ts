@@ -1,7 +1,7 @@
 import upload from "../utils/upload";
 import * as restify from 'restify'
 const initRoute = server =>{
-    server.get('/inicio',(req, res, next)=>{
+    server.get('/',(req, res, next)=>{
         res.send({api: 'It works'})
         next()
     })

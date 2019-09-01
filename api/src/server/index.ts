@@ -46,7 +46,7 @@ class Server {
     }
 
     routeProtect(){
-        let exclusions = ['/inicio','/arquivo/']
+        let exclusions = ['/','/arquivo/','/saveFile']
         this.server.use( jwtMiddlewre( {exclusions} ) )
 
     }

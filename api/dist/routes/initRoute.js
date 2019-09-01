@@ -3,7 +3,7 @@ exports.__esModule = true;
 var upload_1 = require("../utils/upload");
 var restify = require("restify");
 var initRoute = function (server) {
-    server.get('/inicio', function (req, res, next) {
+    server.get('/', function (req, res, next) {
         res.send({ api: 'It works' });
         next();
     });

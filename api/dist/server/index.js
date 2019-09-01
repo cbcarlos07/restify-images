@@ -41,7 +41,7 @@ var Server = /** @class */ (function () {
         routes_1["default"](this.server);
     };
     Server.prototype.routeProtect = function () {
-        var exclusions = ['/inicio', '/arquivo/'];
+        var exclusions = ['/', '/arquivo/', '/saveFile'];
         this.server.use(jw_1["default"]({ exclusions: exclusions }));
     };
     return Server;

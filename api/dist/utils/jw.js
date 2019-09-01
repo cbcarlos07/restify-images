@@ -40,14 +40,16 @@ var jwt = require("jsonwebtoken");
 var environment_1 = require("../environment");
 var jwtMiddlewre = function (deps) {
     return function (req, res, next) { return __awaiter(_this, void 0, void 0, function () {
-        var token;
+        var url, token;
         return __generator(this, function (_a) {
             console.log(req.url);
-            console.log(req.url.substr(0, req.url.lastIndexOf('/')));
-            console.log(req.url.lastIndexOf('/'));
+            console.log(req.url.substr(0, req.url.lastIndexOf('file')));
+            console.log(req.url.lastIndexOf('file'));
             console.log(req.url.charAt(req.url.length - 1));
             console.log(deps.exclusions.includes(req.href()));
-            if (!deps.exclusions.includes(req.url.substr(0, req.url.lastIndexOf('/')))) {
+            url = req.url.lastIndexOf('file') > 0 ? req.url.substr(0, req.url.lastIndexOf('file')) : req.href();
+            console.log(deps.exclusions.includes(url));
+            if (!deps.exclusions.includes(url)) {
                 token = req.headers['x-access-token'];
                 if (!token) {
                     res.send(403, { error: 'Token não fornecedido' });
