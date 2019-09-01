@@ -3,6 +3,7 @@ import * as corsMiddleware from 'restify-cors-middleware'
 import config from '../environment'
 import routes from '../routes';
 import * as bodyParser from 'body-parser'
+import jwtMiddlewre from '../utils/jw';
 class Server {
     server: any
     port: number
@@ -23,6 +24,7 @@ class Server {
 
         this.enableCors()        
         this.configRoutes()
+        this.routeProtect()
         this.server.listen(this.port, ()=>{
             console.log(`Server listening on port ${this.port}`);            
         })
@@ -41,6 +43,12 @@ class Server {
     }
     configRoutes(){        
         routes(this.server)
+    }
+
+    routeProtect(){
+        let exclusions = ['/inicio','/arquivo/']
+        this.server.use( jwtMiddlewre( {exclusions} ) )
+
     }
 }
 const server = new Server()

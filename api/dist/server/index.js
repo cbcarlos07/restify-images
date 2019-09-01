@@ -5,6 +5,7 @@ var corsMiddleware = require("restify-cors-middleware");
 var environment_1 = require("../environment");
 var routes_1 = require("../routes");
 var bodyParser = require("body-parser");
+var jw_1 = require("../utils/jw");
 var Server = /** @class */ (function () {
     function Server() {
         this.config();
@@ -21,6 +22,7 @@ var Server = /** @class */ (function () {
         this.server.use(bodyParser.urlencoded({ extended: true }));
         this.enableCors();
         this.configRoutes();
+        this.routeProtect();
         this.server.listen(this.port, function () {
             console.log("Server listening on port " + _this.port);
         });
@@ -37,6 +39,10 @@ var Server = /** @class */ (function () {
     };
     Server.prototype.configRoutes = function () {
         routes_1["default"](this.server);
+    };
+    Server.prototype.routeProtect = function () {
+        var exclusions = ['/inicio', '/arquivo/'];
+        this.server.use(jw_1["default"]({ exclusions: exclusions }));
     };
     return Server;
 }());
