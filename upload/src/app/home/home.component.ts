@@ -63,5 +63,10 @@ openFile( file: any ){
   this.sendFileSrv.openFile( file.name )
 }
 
+onClickOut(){
+  console.log('clicado fora');
+  
+}
+
 
 }

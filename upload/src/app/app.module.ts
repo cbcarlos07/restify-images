@@ -7,10 +7,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SendFileService } from './send-file.service';
 import { HomeComponent } from './home/home.component';
+import { ClickOutSideDirective } from './click-out-side.directive';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ClickOutSideDirective
   ],
   imports: [
     BrowserModule,
