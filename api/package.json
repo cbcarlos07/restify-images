@@ -18,7 +18,7 @@
     "@types/restify-cors-middleware": "^1.0.1",
     "@types/shortid": "0.0.29",
     "body-parser": "^1.19.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "multer": "^1.4.2",
     "nodemon": "^1.19.1",
     "restify": "^8.4.0",
